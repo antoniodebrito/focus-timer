@@ -1,0 +1,103 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+
+  --white: #fff;
+  --primary-color: #323238;
+  --on-hover: #02799D;
+  --off-hover: #E1E1E6;
+  --icon-color: #323238;
+
+  --ff-primary: 'Roboto', sans-serif;
+}
+
+body {
+  background: var(--white);
+
+  font-family: var(--ff-primary);
+  font-size: 1.6rem;
+
+  height: 100vh;
+
+  display: grid;
+  place-content: center;
+}
+
+main.page {
+  margin-top: -12rem;
+  min-width: 81.5rem;
+  min-height: 33.6rem;
+
+  display: flex;
+  gap: 18.6rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.timer-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4.8rem;
+}
+
+.timer-display {
+  font-size: 12.6rem;
+
+  display: flex;
+}
+
+.timer-sets {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.timer-sets button {
+  background: none;
+  border: none;
+}
+
+.timer-modes {
+  display: grid;
+  gap: 3.2rem;
+  grid-template-areas: "A B" "C D";
+}
+
+.timer-modes div:nth-child(1) {
+  grid-area: A;
+}
+
+.timer-modes div:nth-child(2) {
+  grid-area: B;
+}
+
+.timer-modes div:nth-child(3) {
+  grid-area: C;
+}
+
+.timer-modes div:nth-child(4) {
+  grid-area: D;
+}
+
+.timer-modes button {
+  background: none;
+  border: none;
+}
+
+.timer-modes button:hover {
+  transform: scale(1.1);
+}
+
+.timer-modes button:hover path:nth-child(1){
+  fill: var(--on-hover);
+}
+
+.timer-modes button:hover path:nth-child(2) {
+  fill: var(--white);
+}
