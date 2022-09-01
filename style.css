@@ -61,6 +61,15 @@ main.page {
 .timer-sets button {
   background: none;
   border: none;
+  transition: transform .2s;
+}
+
+.timer-sets button:hover {
+  transform: scale(1.1);
+}
+
+.timer-sets button:hover path {
+  fill: var(--on-hover);
 }
 
 .timer-modes {
@@ -88,6 +97,7 @@ main.page {
 .timer-modes button {
   background: none;
   border: none;
+  transition: all .2s;
 }
 
 .timer-modes button:hover {
@@ -100,4 +110,17 @@ main.page {
 
 .timer-modes button:hover path:nth-child(2) {
   fill: var(--white);
+}
+
+@media (max-width: 860px) {
+  body {
+    overflow: hidden;
+  }
+
+  main.page {
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10rem;
+  }
 }
