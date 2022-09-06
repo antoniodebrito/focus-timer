@@ -72,43 +72,43 @@ main.page {
   fill: var(--on-hover);
 }
 
-.timer-modes {
+.timer-sounds {
   display: grid;
   gap: 3.2rem;
   grid-template-areas: "A B" "C D";
 }
 
-.timer-modes div:nth-child(1) {
+.timer-sounds div:nth-child(1) {
   grid-area: A;
 }
 
-.timer-modes div:nth-child(2) {
+.timer-sounds div:nth-child(2) {
   grid-area: B;
 }
 
-.timer-modes div:nth-child(3) {
+.timer-sounds div:nth-child(3) {
   grid-area: C;
 }
 
-.timer-modes div:nth-child(4) {
+.timer-sounds div:nth-child(4) {
   grid-area: D;
 }
 
-.timer-modes button {
+.timer-sounds button {
   background: none;
   border: none;
   transition: all .2s;
 }
 
-.timer-modes button:hover {
+.timer-sounds button:hover {
   transform: scale(1.1);
 }
 
-.timer-modes button:hover path:nth-child(1){
+.timer-sounds button:hover path:nth-child(1){
   fill: var(--on-hover);
 }
 
-.timer-modes button:hover path:nth-child(2) {
+.timer-sounds button:hover path:nth-child(2) {
   fill: var(--white);
 }
 
