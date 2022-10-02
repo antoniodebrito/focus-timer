@@ -5,8 +5,13 @@ export function Timer({
   let timerTimeOut;
 
   function reset() {
-    minutesDisplay.textContent = 25
-    secondsDisplay.textContent = '00'
+    minutesDisplay.textContent = 25;
+    secondsDisplay.textContent = '00';
+  }
+
+  function timeEnd() {
+    alert('Acabou o tempo!');
+    reset();
   }
 
   function alteredValuesUpdated(minutes) {
@@ -25,7 +30,8 @@ export function Timer({
 
       updatedDisplay(minutes, 0)
 
-      if (minutes <= 0) {
+      if (minutes <= 0 && seconds <= 0) {
+        timeEnd();
         return
       }
 
@@ -35,8 +41,7 @@ export function Timer({
       }
 
 
-      updatedDisplay(minutes, String(seconds - 1))
-
+      updatedDisplay(minutes, String(seconds - 1));
 
       countdown();
     }, 1000);
@@ -45,18 +50,17 @@ export function Timer({
   function incrementMinutes() {
     let minutes = Number(minutesDisplay.textContent);
 
+
     alteredValuesUpdated(String(minutes + 5));
   }
 
   function decrementMinutes() {
     let minutes = Number(minutesDisplay.textContent);
 
-    if (minutes <= 0) {
-      resetTimer();
+    if (minutes <= 5) {
+      return
     }
-
     alteredValuesUpdated(String(minutes - 5));
-
   }
 
   function hold() {

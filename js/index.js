@@ -1,28 +1,54 @@
 import { Timer } from "./timer.js";
-import Sounds from "./sounds.js";
 import {
   minutesDisplay,
   secondsDisplay,
   playButton,
+  pauseButton,
   stopButton,
   addMinutesButton,
   decrementMinutesButton,
-  forest,
-  rain,
-  coffeshop,
-  fireplace } from "./elements.js";
+  changeThemeButton } from "./elements.js";
 
-
-
-const sound = Sounds();
 
 const timer = Timer({
   minutesDisplay,
   secondsDisplay
 })
 
+const toggleTheme = () => {
+  document.body.classList.toggle('dark-theme');
+}
+
+function loadTheme() {
+  const darkMode = localStorage.getItem("dark");
+
+  if (darkMode) {
+    toggleTheme();
+  }
+}
+
+loadTheme();
+
+changeThemeButton.addEventListener("change", () => {
+  toggleTheme();
+
+  localStorage.removeItem('dark')
+
+  if (document.body.classList.contains("dark-theme")) {
+    localStorage.setItem("dark", 1);
+  }
+})
+
 playButton.addEventListener('click', () => {
+  pauseButton.classList.remove('hide');
+  playButton.classList.add('hide');
   timer.countdown();
+})
+
+pauseButton.addEventListener('click', () => {
+  playButton.classList.remove('hide');
+  pauseButton.classList.add('hide');
+  timer.hold();
 })
 
 stopButton.addEventListener('click', () => {
@@ -36,18 +62,4 @@ addMinutesButton.addEventListener('click', () => {
 
 decrementMinutesButton.addEventListener('click', () => {
   timer.decrementMinutes();
-})
-
-
-forest.addEventListener('click', () => {
-  sound.forestSound();
-})
-rain.addEventListener('click', () => {
-  sound.rainSound();
-})
-coffeshop.addEventListener('click', () => {
-  sound.coffeShopSound();
-})
-fireplace.addEventListener('click', () => {
-  sound.fireplaceSound();
 })

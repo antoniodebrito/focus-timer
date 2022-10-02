@@ -7,17 +7,13 @@
 :root {
   font-size: 62.5%;
 
-  --white: #fff;
-  --primary-color: #323238;
-  --on-hover: #02799D;
-  --off-hover: #E1E1E6;
-  --icon-color: #323238;
-
   --ff-primary: 'Roboto', sans-serif;
 }
 
+/* ## GENERAL STYLES OF PAGE */
+
 body {
-  background: var(--white);
+  background: var(--background);
 
   font-family: var(--ff-primary);
   font-size: 1.6rem;
@@ -27,6 +23,60 @@ body {
   display: grid;
   place-content: center;
 }
+
+.hide {
+  display: none;
+}
+
+/* DEFINE THEME COLOR */
+
+body.light-theme {
+  --background: #fff;
+  --timer-color: #000;
+  --card-normal: #E1E1E6;
+  --card-hover: #02799D;
+  --icon-normal: #323238;
+  --icon-hover: #a79d9d;
+}
+
+body.dark-theme {  
+  --background: #121214;
+  --timer-color: #fff;
+  --card-normal: #29292E;
+  --card-hover: #0A3442;
+  --icon-normal: #C4C4CC;
+  --icon-hover: #c0dde5;
+}
+
+
+/* ## TOGGLE THEME */
+input[type="checkbox"] {
+  display: none;
+}
+
+.theme-buttons {
+  width: 4.5rem;
+
+  position: absolute;
+  right: 6.4rem;
+  top: 6.4rem;
+}
+
+.dark-theme .sun-icon {
+  display: none;
+}
+
+.light-theme .moon-icon {
+  display: none;
+}
+
+.dark-theme .moon-icon {
+  display: block;
+}
+
+
+
+/* MAIN STYLES */
 
 main.page {
   margin-top: -12rem;
@@ -44,11 +94,12 @@ main.page {
   flex-direction: column;
   justify-content: center;
   gap: 4.8rem;
+  
 }
 
 .timer-display {
+  color: var(--timer-color);
   font-size: 12.6rem;
-
   display: flex;
 }
 
@@ -68,8 +119,17 @@ main.page {
   transform: scale(1.1);
 }
 
-.timer-sets button:hover path {
-  fill: var(--on-hover);
+.timer-sets button path {
+  fill: var(--icon-normal);
+}
+
+.timer-sets svg:hover {
+  border-radius: 50%;
+  box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.171);
+}
+
+.timer-sets svg:hover path {
+  fill: var(--icon-hover);
 }
 
 .timer-sounds {
@@ -104,12 +164,34 @@ main.page {
   transform: scale(1.1);
 }
 
-.timer-sounds button:hover path:nth-child(1){
-  fill: var(--on-hover);
+.timer-sounds button path:nth-child(1) {
+  fill: var(--card-normal);
 }
 
+/* COR DO CARD NO HOVER AQUI */
+.timer-sounds button:hover path:nth-child(1){
+  fill: var(--card-hover);
+}
+
+.timer-sounds button path:nth-child(2) {
+  fill: var(--icon-normal);
+}
+/* COR DO ICONE NO HOVER AQUI */
 .timer-sounds button:hover path:nth-child(2) {
-  fill: var(--white);
+  fill: var(--icon-hover);
+}
+
+.relative {
+  position: relative;
+}
+
+#volume {
+  width: 9rem;
+  position: absolute;
+  top: 12rem;
+  left: 2.4rem;
+  right: 2.4rem;
+
 }
 
 @media (max-width: 860px) {
